@@ -1,0 +1,6 @@
+/* src/style.css */
+@import url('./css-reset.css');
+
+body {
+	font-family: Arial, sans-serif;
+}
