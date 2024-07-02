@@ -6,9 +6,13 @@ const apiKey = process.env.WEATHER_API_KEY;
 const weatherAPI = new WeatherAPI(apiKey);
 const weatherDisplay = new WeatherDisplay(document.body);
 
-async function loadWeather() {
-	const weatherData = await weatherAPI.fetchWeather('Bellevue');
+async function loadWeather(city) {
+	const weatherData = await weatherAPI.fetchWeather(city);
 	weatherDisplay.render(weatherData);
 }
 
-loadWeather();
+document.querySelector('#location-form').addEventListener('submit', (event) => {
+	event.preventDefault();
+	const locationInput = document.querySelector('#location-input').value;
+	loadWeather(locationInput);
+});
