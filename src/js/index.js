@@ -4,7 +4,9 @@ import WeatherDisplay from '../components/WeatherDisplay';
 
 const apiKey = process.env.WEATHER_API_KEY;
 const weatherAPI = new WeatherAPI(apiKey);
-const weatherDisplay = new WeatherDisplay(document.body);
+const weatherDisplay = new WeatherDisplay(
+	document.querySelector('#weather-container')
+);
 
 async function loadWeather(city) {
 	const weatherData = await weatherAPI.fetchWeather(city);
