@@ -46,3 +46,10 @@ form {
 p {
 	margin: 10px 0;
 }
+
+#loading {
+	display: none;
+	font-size: 1.5em;
+	color: #555;
+	margin-top: 20px;
+}
