@@ -2,9 +2,7 @@ import '../css/style.css';
 import WeatherAPI from './api';
 import WeatherDisplay from '../components/WeatherDisplay';
 
-// const apiKey = process.env.WEATHER_API_KEY;
-const apiKey = '4398dfa667804ed08f2190845241206';
-const weatherAPI = new WeatherAPI(apiKey);
+const weatherAPI = new WeatherAPI();
 const weatherDisplay = new WeatherDisplay(
 	document.querySelector('#weather-container'),
 	document.querySelector('#loading')
@@ -13,8 +11,14 @@ const weatherDisplay = new WeatherDisplay(
 async function loadWeather(city) {
 	weatherDisplay.clear();
 	weatherDisplay.showLoading();
-	const weatherData = await weatherAPI.fetchWeather(city);
-	weatherDisplay.render(weatherData);
+
+	try {
+		const weatherData = await weatherAPI.fetchWeather(city);
+		weatherDisplay.render(weatherData);
+	} catch (error) {
+		console.error('Error fetching weather data:', error);
+		weatherDisplay.render(null); // Pass null to indicate an error
+	}
 }
 
 document.querySelector('#location-form').addEventListener('submit', (event) => {
