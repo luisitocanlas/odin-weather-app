@@ -1,9 +1,23 @@
 export default class WeatherDisplay {
-	constructor(container) {
+	constructor(container, loadingElement) {
 		this.container = container;
+		this.loadingElement = loadingElement;
+	}
+
+	showLoading() {
+		this.loadingElement.style.display = 'block';
+	}
+
+	hideLoading() {
+		this.loadingElement.style.display = 'none';
+	}
+
+	clear() {
+		this.container.innerHTML = '';
 	}
 
 	render(weatherData) {
+		this.hideLoading();
 		const { location, current } = weatherData;
 
 		this.container.innerHTML = `
