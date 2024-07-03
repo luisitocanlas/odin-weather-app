@@ -2,7 +2,8 @@ import '../css/style.css';
 import WeatherAPI from './api';
 import WeatherDisplay from '../components/WeatherDisplay';
 
-const apiKey = process.env.WEATHER_API_KEY;
+// const apiKey = process.env.WEATHER_API_KEY;
+const apiKey = '4398dfa667804ed08f2190845241206';
 const weatherAPI = new WeatherAPI(apiKey);
 const weatherDisplay = new WeatherDisplay(
 	document.querySelector('#weather-container'),
