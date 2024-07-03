@@ -1,7 +1,7 @@
 export default class WeatherAPI {
 	constructor(apiKey) {
 		this.apiKey = apiKey;
-		this.baseUrl = 'http://api.weatherapi.com/v1/current.json';
+		this.baseUrl = 'https://api.weatherapi.com/v1/current.json';
 	}
 
 	async fetchWeather(city) {
